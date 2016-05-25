@@ -42,6 +42,11 @@ def gross(price, html=False):
     if html:
         return format_price(price.gross, price.currency)
 
+    try:
+        price.gross
+    except:
+        return ""
+
     return format_currency(price.gross, 'KRW', u'#,##0.00 원', locale='ko_KR')
     # return currencyfmt(price.gross, price.currency)
 
